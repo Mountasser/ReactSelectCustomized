@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet';
 import md from '../../markdown/renderer';
 import ExampleWrapper from '../../ExampleWrapper';
 import {
+  CustomeMountasser,
   CustomClearIndicator,
   CustomDropdownIndicator,
   CustomLoadingIndicator,
@@ -185,6 +186,7 @@ export default function Components() {
           </ExampleWrapper>
         }
 
+
         ### GroupHeading
 
         Component that renders the data of a group.
@@ -201,6 +203,16 @@ export default function Components() {
           </ExampleWrapper>
         }
 
+        ### Mountasser
+
+        Component that renders the data of a group.
+
+        See [props docs](/props#groupheading) for more details
+
+        ${
+     
+            <CustomeMountasser/>
+        }
         ### IndicatorsContainer
 
         Wraps the indicators. This is one of the two components directly under the

@@ -110,9 +110,11 @@ export const groupedOptions = [
   {
     label: 'Colours',
     options: colourOptions,
+    color: '#00B8D9',
   },
   {
     label: 'Flavours',
     options: flavourOptions,
+    color: '#00B8D9',
   },
 ];
