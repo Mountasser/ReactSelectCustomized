@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Custom from './toto/CustomeMountasser';
 
 const title = 'My Minimal React Webpack Babel Setup';
 
 ReactDOM.render(
-  <div>{title}</div>,
+ <Custom/>,
   document.getElementById('app')
 );
 
