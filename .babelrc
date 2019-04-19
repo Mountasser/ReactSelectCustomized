@@ -2,15 +2,19 @@
   "presets": [
     ["@babel/preset-env", {"modules": false}], // webpack understands the native import syntax, and uses it for tree shaking
     "@babel/preset-react" // Transpile React components to JavaScript
+    ,"@babel/preset-typescript",
+    "@babel/preset-flow"
   ],
   "plugins": [
-    "react-hot-loader/babel", // Enables React code to work with HMR.
+    "@babel/plugin-proposal-class-properties",
+    "react-hot-loader/babel",   
     [
       "module-resolver", {
       "root": ["./src"]
     }
     ]
   ],
+
   "env": {
     "test": {
       "presets": ["@babel/preset-env", "@babel/preset-react"],
