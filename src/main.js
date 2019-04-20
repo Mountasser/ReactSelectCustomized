@@ -11,30 +11,36 @@ function getLength (options) {
   }, 0);
 };
 
-const menuHeaderStyle = {
-  padding: '8px 12px',
-  width: '30em'
-};
-const menuHeaderCol1And2Style ={
-width: '20em',
-float: 'left'
-}
-const menuHeaderCol1Style = {
-  width: '10em',
-   float:'left'
 
+const menuHeaderCol1Style = {
+  padding: "2px 8px",
+
+  width: '10em',
 };
 
 const menuHeaderCol2Style = {
+ // padding: "2px 8px",
   width: '10em',
-  float:'right'
-
 };
 
 const menuHeaderCol3Style = {
-  width: '10em',
+ // padding: "2px 8px",
 
-display : 'table-caption'
+  width: '10em',
+};
+
+const menuCol1Style = {
+
+  width: '10em',
+};
+
+const menuCol2Style = {
+  width: '10em',
+};
+
+const menuCol3Style = {
+
+  width: '10em',
 };
 
 const toto = {  "background":"#bfd70e","borderRadius":"50%","width":"16px","height":"16px","border":"2px solid #679403"}
@@ -43,16 +49,14 @@ const Menu = (props) => {
   console.log("koko",props)
   return (
     <Fragment>
-      <div style={menuHeaderStyle}>
-      <div style={menuHeaderCol1And2Style}>
-<div style={menuHeaderCol1Style}>Compte</div>
-<div style={menuHeaderCol2Style}>Solde</div>
-</div>
-<div style={menuHeaderCol3Style}>3rd Clmn</div>
+ <tr>
+<td><div style={menuHeaderCol1Style}>Compte</div></td>
+<td><div style={menuHeaderCol2Style}>Solde</div></td>
 
-</div>
+<td><div style={menuHeaderCol3Style}>3rd Clmn</div></td>
+</tr>
       <components.Menu {...props}>
-        {props.children}
+      {props.children}
       </components.Menu>
     </Fragment>
   );
@@ -91,24 +95,26 @@ export default function Components() {
   options={groupedOptions}
   components={{ Menu }}
   isClearable
-  styles={Styles}
-  menuIsOpen={true}
+  styles={{
+    singleValue: (base) => ({ ...base,width: '20%' }),
+  }}
+    menuIsOpen={true}
   isSearchable
 
-  singleValue = {formatGroupLabel}
+  singleValue = {()=>formatGroupLabel()}
 
   formatOptionLabel={(data) => {console.log("lolo",data); return (
-    <div >
-              <div style={menuHeaderCol1And2Style}>
+    <tr>
+    <td><div style={menuCol1Style}>{data.label}</div></td>
+    <td><div style={menuCol2Style}>{data.color}</div></td>
+    
+    <td><div style={menuCol3Style}><div style= {toto}/> </div></td>
+    </tr>
+  )
 
-      <div style={menuHeaderCol1Style}>{data.label}</div>
-<div style={menuHeaderCol2Style}>{data.color}</div>
-</div>
 
-<div style={menuHeaderCol3Style}><div style= {toto}> </div></div>
 
-      </div>
-  )}}  
+}}  
   
   
   />  
