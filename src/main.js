@@ -50,8 +50,8 @@ const Menu = (props) => {
   return (
     <Fragment>
  <tr>
-<td><div style={menuHeaderCol1Style}>Compte</div></td>
-<td><div style={menuHeaderCol2Style}>Solde</div></td>
+<td><div style={menuHeaderCol1Style}>1st Clmn</div></td>
+<td><div style={menuHeaderCol2Style}>2nd Clmn</div></td>
 
 <td><div style={menuHeaderCol3Style}>3rd Clmn</div></td>
 </tr>
@@ -96,7 +96,8 @@ export default function Components() {
   components={{ Menu }}
   isClearable
   styles={{
-    singleValue: (base) => ({ ...base,width: '20%' }),
+    singleValue: (base) => ({ ...base,width: '20%', padding: "0px",
+  }),
   }}
     menuIsOpen={true}
   isSearchable
