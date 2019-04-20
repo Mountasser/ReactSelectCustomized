@@ -45,8 +45,6 @@ const menuCol3Style = {
 
 const toto = {  "background":"#bfd70e","borderRadius":"50%","width":"16px","height":"16px","border":"2px solid #679403"}
 const Menu = (props) => {
-  const optionsLength = getLength(props.options);
-  console.log("koko",props)
   return (
     <Fragment>
  <tr>
@@ -61,48 +59,30 @@ const Menu = (props) => {
     </Fragment>
   );
 };
-const dot = (color = '#ccc') => ({
-  alignItems: 'center',
-  display: 'flex',
-
-  ':before': {
-
-  content:  '" "',
-    display: 'block',
-    marginRight: 8,
-    height: 10,
-    width: 10,
-  },
-});
-const Styles = {
-  singleValue: (styles, { data }) => ({ ...styles }),
-};
 
 
 
-export const formatGroupLabel = data => (
-  <div style={groupStyles}>
-    <span>{data.label}</span>
-    <span style={groupBadgeStyles}>{data.options.length}</span>
-  </div>
-);
 
 
+
+export const CustomIndicator = ({ innerRef, innerProps ,data}) =>{   console.log("vovo",data)
+return (
+
+  <div ref={innerRef} {...innerProps} >{data.value}</div>)}
+  
+  
 export default function Components() {
   return (
  <Select
   defaultValue={colourOptions[1]}
   options={groupedOptions}
-  components={{ Menu }}
+  components={{Menu : Menu ,SingleValue: CustomIndicator}}
   isClearable
   styles={{
-    singleValue: (base) => ({ ...base,width: '20%', padding: "0px",
-  }),
+    singleValue: (styles, { data }) => ({ ...styles }),
+    
   }}
     menuIsOpen={true}
-  isSearchable
-
-  singleValue = {()=>formatGroupLabel()}
 
   formatOptionLabel={(data) => {console.log("lolo",data); return (
     <tr>
